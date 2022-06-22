@@ -15,6 +15,7 @@
 class Pepe {
     estado = 'feliz'
     idioma = 'Español'
+    static banco = 42
     constructor(estado = 'feliz'){
         console.log(`Es una persona ${estado}`);
     }
@@ -22,11 +23,38 @@ class Pepe {
     hablar(){
         console.log(`Esta persona habla ${this.idioma}`)
     }
+    static banco(){
+        console.log(this.banco);
+    }
 };
 
 // para ejecutar o crear una instancia de la clase hay que realizar lo siguiente.
 
-const humano = new Pepe("feliz");
-humano.hablar();
-console.log(humano);
+//const humano = new Pepe("feliz");
+//humano.hablar();
+//Pepe.banco();
+//console.log(humano);
 //console.log(humano.__proto__);
+
+
+class Chancho {
+    propiedad = 'Sólido'
+    #hambre //Propiedad PRIVADA
+    static estatico = 42
+
+    constructor(estado = 'feliz', hambre = false) {
+        this.estado = estado
+        this.#hambre = hambre
+
+    }
+    hablar () {
+        console.log(`Soy chancho ${this.estado} ${this.#hambre ? 'con mucha hambre' : 'satisfecho'}`);
+    }
+
+    static comer() {
+        console.log(this.estatico,'comiendo')
+    }
+}
+
+Chancho.comer()
+const feliz = new Chancho('feliz');
