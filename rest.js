@@ -19,4 +19,6 @@ const { a,b,...restobj } = obj
 
 const useState = () => ['valor', ()=> {}]
 
-console.log(useState())
+const [valor, setValor] = useState()
+
+console.log(valor, setValor)
