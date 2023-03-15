@@ -1,5 +1,7 @@
 import { Component } from "react" //Obligatorio
 
+
+/*
 class Button extends Component {
     constructor(props) {
         super(props) //Super hace referencia al componente de Components
@@ -50,7 +52,53 @@ class App extends Component {
         )
     }
 }
+*/
 
+//Creamos otras clases para seguir con el ejercicio.
+
+class Input extends Component {
+    
+    render() {
+        return(
+            <input
+                value={this.props.value} //Acá se guardan los valores y con el OnChange se actualizan.
+                onChange={this.props.onChange} //Acá obtenemos los valores del input.
+            />
+            
+        )
+    }
+}
+
+
+class App extends Component{
+
+    state = {
+        nombre: '',
+        apellido: ''
+    }
+
+    updateValues = (props,values) =>{
+        this.setState({[props]:values})
+    }
+    render() {
+        return (
+            <div>
+                <p>Nombre completo: {`${this.state.nombre}`} {`${this.state.apellido}`}
+                    <Input 
+                        value={this.state.nombre}
+                        onChange={e => this.updateValues('nombre',e.target.value)}
+                    />
+                    <Input 
+                        value={this.state.apellido}
+                        onChange={e => this.updateValues('apellido',e.target.value)}
+                    />
+                </p>
+            </div>
+            
+
+        )
+    }
+}
 
 
 export default App
