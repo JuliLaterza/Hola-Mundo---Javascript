@@ -1,0 +1,6 @@
+{productos.map(producto => //En esete momento se itera los componentes y luego se renderizan
+                    <Producto
+                    agregarAlCarrito={agregarAlCarrito}
+                    key={producto.name}
+                    producto={producto}
+                    />)}
