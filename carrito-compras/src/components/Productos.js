@@ -2,6 +2,7 @@ import { Component } from "react"
 import Producto from "./Productos"
 import Button from "./Button"
 
+
 const styles = {
     productos: {
         display: 'flex',
@@ -14,6 +15,7 @@ const styles = {
         width: '30%',
         padding: '10px 15px',
         borderRadius: '5px',
+        margin: '10px 20px',
     },
     img:{
         width: '80%',
@@ -31,7 +33,7 @@ class Productos extends Component { //Con este componente se renderizan los prod
                     <div key={product.name} style={styles.producto}>
                         <img src={product.img} alt={product.name} style={styles.img}/>
                         <h2>{product.name}</h2>
-                        <p>{product.price}</p>
+                        <p>Precio: ${product.price}</p>
                         <Button
                             onClick={() => agregarAlCarrito(product)}
                         >
