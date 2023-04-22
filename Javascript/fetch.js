@@ -1,4 +1,4 @@
-const url = 'http://jsonplaceholder.typicode.com/users'
+const url = 'https://pokeapi.co/api/v2/pokemon/pikachu'
 
 
 // Esta funcion recibe 2 parámetros, el primero es la URL y el segundo una función.
@@ -17,18 +17,14 @@ const url = 'http://jsonplaceholder.typicode.com/users'
 
 const fn = async () => {
     const response = await fetch(url, {
-        method: 'POST', //También existe GET, POST, PUT, PATCH, DELETE SIRVE PARA CREAR CONEXIÓN CON UNA API REST.
-        headers: { //En el header está la información de que es lo que vamos a cargar
-            'Content-Type': 'application/json', // Es para que el servidor entienda QUE TIPO de dato le estamos enviando. En este caso es un JSON
-            'Authorization': 'Bearer acasedebeingresarElTokenDeAutorizacion' //Acá se envía el token de autorización
-        },
-        body: JSON.stringify({ //Toda la información  que le envío al SERVIDOR. de JSON a String
-            name: 'Juli',
-            website: 'google.com'
-        })
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
     })
     const data = await response.json()
     console.log(data)
+    
 }
 
 fn()
